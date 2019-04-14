@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Game from './components/phaser/Game';
+import phaserMain from './Phaser/main'
 import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {z
+class App extends Component {
   render() {
     return (
       <div className="App">
@@ -14,6 +15,7 @@ class App extends Component {z
           </p>
         </header> */}
         <div>Hello</div>
+        {/* <phaserMain /> */}
         <Game />
         <div>Hello again</div>
       </div>
