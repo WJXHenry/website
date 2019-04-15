@@ -1,12 +1,22 @@
 import Phaser from 'phaser';
 
 export default class TestScene extends Phaser.Scene {
+  constructor() {
+    super('TestScene'); // Set the key name
+  }
+
   preload() {
-    this.load.setBaseURL('https://raw.githubusercontent.com/wjxhenry/website/master/');
+    this.load.setBaseURL(
+      'https://raw.githubusercontent.com/wjxhenry/website/master'
+    );
+    // this.load.setBaseURL('https://labs.phaser.io');
 
     this.load.image('sky', 'assets/test/space3.png');
     this.load.image('logo', 'assets/test/phaser3-logo.png');
     this.load.image('red', 'assets/test/red.png');
+    // this.load.image('sky', 'assets/skies/space3.png');
+    // this.load.image('logo', 'assets/sprites/phaser3-logo.png');
+    // this.load.image('red', 'assets/particles/red.png');
   }
 
   create() {
@@ -29,6 +39,16 @@ export default class TestScene extends Phaser.Scene {
     logo.setCollideWorldBounds(true);
 
     emitter.startFollow(logo);
+
+    var keyObj = this.input.keyboard.addKey('Enter');
+    keyObj.on('down', event => {
+      console.log('Enter key down');
+      console.log('Start "Movement" scene');
+      this.scene.start('Movement');
+    });
+    // keyObj.on('up', event => {
+    //   console.log('Enter key up');
+    // });
   }
 
   update() {

@@ -1,6 +1,7 @@
 import React from 'react';
 import Phaser from 'phaser';
 import TestScene from './Scenes/TestScene';
+import Movement from './Scenes/Movement';
 
 export default class Game extends React.Component {
   componentDidMount() {
@@ -16,7 +17,7 @@ export default class Game extends React.Component {
           gravity: { y: 200 }
         }
       },
-      scene: [TestScene]
+      scene: [TestScene, Movement]
     };
 
     new Phaser.Game(config);
