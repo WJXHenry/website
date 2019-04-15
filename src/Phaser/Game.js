@@ -1,8 +1,8 @@
-import { Component } from 'react';
+import React from 'react';
 import Phaser from 'phaser';
 import TestScene from './Scenes/TestScene';
 
-export default class Game extends Component {
+export default class Game extends React.Component {
   componentDidMount() {
     const config = {
       type: Phaser.AUTO,
