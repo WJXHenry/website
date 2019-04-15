@@ -13,6 +13,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "prettify-phaser": "prettier \"src/Phaser/**/*.js\" --write",
+    "lint-phaser": "eslint src/Phaser/**",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
@@ -27,6 +29,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "eslint": "^5.16.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "gh-pages": "^2.0.1",
+    "prettier": "^1.17.0"
   }
 }

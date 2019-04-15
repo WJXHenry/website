@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Game from './components/phaser/Game';
-import phaserMain from './Phaser/main'
+import Game from './Phaser/Game';
 import logo from './logo.svg';
 import './App.css';
 
@@ -14,10 +13,10 @@ class App extends Component {
             React Website
           </p>
         </header> */}
-        <div>Hello</div>
+        <div>Phaser Game</div>
         {/* <phaserMain /> */}
         <Game />
-        <div>Hello again</div>
+        {/* <div>Hello again</div> */}
       </div>
     );
   }
