@@ -13,8 +13,8 @@ export default class Movement extends Phaser.Scene {
       }
     } else if (direction === 'down') {
       sprite.y += 2;
-      if (sprite.y > 100) {
-        sprite.y = 100;
+      if (sprite.y > 600) {
+        sprite.y = 600;
       }
     } else if (direction === 'left') {
       sprite.x -= 2;
@@ -23,8 +23,8 @@ export default class Movement extends Phaser.Scene {
       }
     } else if (direction === 'right') {
       sprite.x += 2;
-      if (sprite.x > 100) {
-        sprite.x = 100;
+      if (sprite.x > 800) {
+        sprite.x = 800;
       }
     }
   }
@@ -70,7 +70,7 @@ export default class Movement extends Phaser.Scene {
 
   update() {
     this.counter++;
-    if (this.counter % 5 === 0) {
+    if (this.counter % 1 === 0) {
       // Clock updates every 60 seconds
       // console.log("Tick")
       this.counter = 0; // Reset counter (just in case of overflow?)
