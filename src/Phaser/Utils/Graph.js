@@ -7,66 +7,85 @@
  *
  * Uses an adjacency list representation. Loops
  * and parallel copies of edges can be stored.
+ *
+ * TODO: write some tests
  */
 
 export default class Graph {
   constructor(vertices = new Set(), edges = new Array()) {
-    this.alist = {};
+    this.alist = {}
 
     vertices.forEach(v => {
-      this.add_vertex(v);
-    });
+      this.add_vertex(v)
+    })
     edges.forEach(e => {
-      this.add_edge(e);
-    });
+      this.add_edge(e)
+    })
   }
 
   get_vertices() {
-    return new Set(Object.keys(this.alist));
+    return new Set(Object.keys(this.alist))
   }
 
   get_edges() {
-    // TODO
-    let edges = [];
-    console.log(Object.entries(this.alist));
-    console.log(Object.values(this.alist));
-    // TODO: fix
-    return edges;
+    let edges = []
+    Object.keys(this.alist).forEach(key => {
+      this.alist[key].forEach(vertex => {
+        edges.push([Number(key), vertex])
+      })
+    })
+    return edges
   }
 
   add_vertex(v) {
     if (!(v in this.alist)) {
-      this.alist[v] = new Set();
+      this.alist[v] = new Set()
     }
   }
 
   add_edge(e) {
     if (!this.is_vertex(e[0]) || !this.is_vertex(e[1])) {
-      throw new Error('An endpoint is not in graph');
+      throw new Error('An endpoint is not in graph')
     }
-    this.alist[e[0]].add(e[1]);
+    this.alist[e[0]].add(e[1])
   }
 
   is_vertex(v) {
-    return v in this.alist;
+    return v in this.alist
   }
 
   is_edge(e) {
     if (!(e[0] in this.alist)) {
-      return false;
+      return false
     }
-    return this.alist[e[0]].has(e[1]);
+    return this.alist[e[0]].has(e[1])
   }
 
   neighbours(v) {
-    // TODO
+    if (!this.is_vertex(v)) {
+      throw new Error('Vertex not in graph')
+    }
+    return Array.from(this.alist[v])
   }
 
-  is_walk(walk) {
-    // TODO
+  static is_walk(g, walk) {
+    if (walk.length === 0)
+      // Should have at least one vertex
+      return false
+
+    if (walk.length === 1) return g.is_vertex(walk[0])
+
+    for (let i = 0; i < walk.length - 1; i++) {
+      if (!g.is_edge([walk[i], walk[i + 1]])) {
+        return false
+      }
+    }
+    return true
   }
 
-  is_path(path) {
-    // TODO
+  static is_path(g, path) {
+    if (new Set(path).size < path.length) return false
+
+    return this.is_walk(g, path)
   }
 }

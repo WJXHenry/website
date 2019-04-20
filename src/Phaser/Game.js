@@ -1,7 +1,7 @@
-import React from 'react';
-import Phaser from 'phaser';
-import TestScene from './Scenes/TestScene';
-import Movement from './Scenes/Movement';
+import React from 'react'
+import Phaser from 'phaser'
+import TestScene from './Scenes/TestScene'
+import Movement from './Scenes/Movement'
 
 export default class Game extends React.Component {
   componentDidMount() {
@@ -18,12 +18,12 @@ export default class Game extends React.Component {
         }
       },
       scene: [TestScene, Movement]
-    };
+    }
 
-    new Phaser.Game(config);
+    new Phaser.Game(config)
   }
 
   render() {
-    return <div id="phaser-parent" />;
+    return <div id="phaser-parent" />
   }
 }
