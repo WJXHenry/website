@@ -7,8 +7,6 @@
  *
  * Uses an adjacency list representation. Loops
  * and parallel copies of edges can be stored.
- *
- * TODO: write some tests
  */
 
 export default class Graph {
