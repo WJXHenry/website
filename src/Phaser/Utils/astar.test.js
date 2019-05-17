@@ -1,6 +1,6 @@
-import { astar } from './astar'
+// import { astar } from './astar';
 
 test('astar', () => {
-  expect.assertions(1)
-  expect(true).toEqual(true)
-})
+  expect.assertions(1);
+  expect(true).toEqual(true);
+});
