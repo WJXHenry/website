@@ -14,7 +14,7 @@ install:
 script:
   - npm run lint-phaser
   - npm test
-  - npm build
+  - npm run build
 deploy:
   provider: pages
   skip_cleanup: true
