@@ -1,4 +1,4 @@
-import Graph from './Graph'
+import Graph from './graph'
 
 test('constructor', () => {
   expect.assertions(5)
