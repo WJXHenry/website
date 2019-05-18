@@ -4,6 +4,7 @@ node_js:
 branches:
   only:
     - master
+    - edge
 cache:
   directories:
     - node_modules
@@ -21,3 +22,5 @@ deploy:
   github_token: $GITHUB_TOKEN
   keep_history: true
   local_dir: ./build
+  on:
+    branch: master
