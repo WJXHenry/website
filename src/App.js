@@ -6,12 +6,12 @@ import './App.css';
 
 class App extends Component {
   render() {
-    console.log(process.env.PUBLIC_URL);
+    console.log(process.env.PUBLIC_URL)
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <div className="App">
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/game" component={MazeGamePage} />
+          <Route exact path='/' component={HomePage} />
+          <Route exact path='/game' component={MazeGamePage} />
         </div>
       </BrowserRouter>
     );
