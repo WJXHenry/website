@@ -29,6 +29,23 @@ test('getEdges', () => {
   expect(g.getEdges().sort()).toEqual([[1, 2], [2, 1], [2, 3], [3, 1]]);
 });
 
+test('getEdgesString', () => {
+  expect.assertions(2);
+  let g = new Graph(new Set(['1', '2', '3']), [
+    ['1', '2'],
+    ['2', '3'],
+    ['3', '1']
+  ]);
+  expect(g.getEdges().sort()).toEqual([['1', '2'], ['2', '3'], ['3', '1']]);
+  g.addEdge(['2', '1']);
+  expect(g.getEdges().sort()).toEqual([
+    ['1', '2'],
+    ['2', '1'],
+    ['2', '3'],
+    ['3', '1']
+  ]);
+});
+
 test('addVertex', () => {
   expect.assertions(3);
   let g = new Graph();

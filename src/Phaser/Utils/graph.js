@@ -29,7 +29,11 @@ export default class Graph {
     let edges = [];
     Object.keys(this.alist).forEach(key => {
       this.alist[key].forEach(vertex => {
-        edges.push([Number(key), vertex]);
+        if (Number.isInteger(vertex)) {
+          edges.push([Number(key), vertex]);
+        } else {
+          edges.push([key, vertex]);
+        }
       });
     });
     return edges;

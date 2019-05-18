@@ -7,16 +7,6 @@ test('constructor', () => {
   let vertices = maze.getVertices();
   expect(vertices.size).toEqual(9);
   expect(vertices).toEqual(
-    new Set([
-      [0, 0],
-      [0, 1],
-      [0, 2],
-      [1, 0],
-      [1, 1],
-      [1, 2],
-      [2, 0],
-      [2, 1],
-      [2, 2]
-    ])
+    new Set(['0,0', '0,1', '0,2', '1,0', '1,1', '1,2', '2,0', '2,1', '2,2'])
   );
 });
