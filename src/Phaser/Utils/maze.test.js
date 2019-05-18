@@ -1,9 +1,12 @@
 import Maze from './maze';
 
+// TODO: for each vertex, should have at least one edge (use the get edges)
 test('constructor', () => {
-  expect.assertions(1);
+  expect.assertions(2);
   let maze = new Maze(3);
-  expect(maze.getMazeVertices()).toEqual(
+  let vertices = maze.getVertices();
+  expect(vertices.size).toEqual(9);
+  expect(vertices).toEqual(
     new Set([
       [0, 0],
       [0, 1],
