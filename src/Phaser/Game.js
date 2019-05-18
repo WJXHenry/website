@@ -10,8 +10,8 @@ export default class Game extends React.Component {
       type: Phaser.AUTO,
       parent: 'phaser-parent',
       pixelArt: true,
-      width: dimension*0.8,
-      height: dimension*0.8,
+      width: dimension * 0.8,
+      height: dimension * 0.8,
       physics: {
         default: 'arcade',
         arcade: {
