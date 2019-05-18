@@ -8,65 +8,65 @@ test('constructor', () => {
   expect(g.alist[3]).toEqual(new Set());
   let h1 = new Graph();
   let h2 = new Graph();
-  h1.add_vertex(1);
+  h1.addVertex(1);
   expect(Object.keys(h1.alist)).toEqual(['1']);
   expect(Object.keys(h2.alist)).toEqual([]);
 });
 
-test('get_vertices', () => {
+test('getVertices', () => {
   expect.assertions(2);
   let g = new Graph(new Set([1, 2, 3]), [[1, 2], [2, 3]]);
-  expect(g.get_vertices()).toEqual(new Set(['1', '2', '3']));
+  expect(g.getVertices()).toEqual(new Set(['1', '2', '3']));
   let h = new Graph();
-  expect(h.get_vertices()).toEqual(new Set());
+  expect(h.getVertices()).toEqual(new Set());
 });
 
-test('get_edges', () => {
+test('getEdges', () => {
   expect.assertions(2);
   let g = new Graph(new Set([1, 2, 3]), [[1, 2], [2, 3], [3, 1]]);
-  expect(g.get_edges().sort()).toEqual([[1, 2], [2, 3], [3, 1]]);
-  g.add_edge([2, 1]);
-  expect(g.get_edges().sort()).toEqual([[1, 2], [2, 1], [2, 3], [3, 1]]);
+  expect(g.getEdges().sort()).toEqual([[1, 2], [2, 3], [3, 1]]);
+  g.addEdge([2, 1]);
+  expect(g.getEdges().sort()).toEqual([[1, 2], [2, 1], [2, 3], [3, 1]]);
 });
 
-test('add_vertex', () => {
+test('addVertex', () => {
   expect.assertions(3);
   let g = new Graph();
-  expect(g.get_vertices().size).toEqual(0);
-  g.add_vertex(1);
-  g.add_vertex('vertex');
-  expect(g.get_vertices().has('vertex')).toEqual(true);
-  expect(g.get_vertices().has('2')).toEqual(false);
+  expect(g.getVertices().size).toEqual(0);
+  g.addVertex(1);
+  g.addVertex('vertex');
+  expect(g.getVertices().has('vertex')).toEqual(true);
+  expect(g.getVertices().has('2')).toEqual(false);
 });
 
-test('add_edge', () => {
+test('addEdge', () => {
   expect.assertions(3);
   let g = new Graph();
-  g.add_vertex(1);
-  g.add_vertex(2);
-  g.add_edge([1, 2]);
+  g.addVertex(1);
+  g.addVertex(2);
+  g.addEdge([1, 2]);
   expect(g.alist[1].has(2)).toEqual(true);
   expect(g.alist[2].has(1)).toEqual(false);
-  g.add_edge([1, 2]);
+  g.addEdge([1, 2]);
   expect(g.alist[1]).toEqual(new Set([2]));
 });
 
-test('is_vertex', () => {
+test('isVertex', () => {
   expect.assertions(3);
   let g = new Graph(new Set([1, 2]));
-  expect(g.is_vertex(1)).toEqual(true);
-  expect(g.is_vertex(3)).toEqual(false);
-  g.add_vertex(3);
-  expect(g.is_vertex(3)).toEqual(true);
+  expect(g.isVertex(1)).toEqual(true);
+  expect(g.isVertex(3)).toEqual(false);
+  g.addVertex(3);
+  expect(g.isVertex(3)).toEqual(true);
 });
 
-test('is_edge', () => {
+test('isEdge', () => {
   expect.assertions(3);
   let g = new Graph(new Set([1, 2]), [[1, 2]]);
-  expect(g.is_edge([1, 2])).toEqual(true);
-  expect(g.is_edge([2, 1])).toEqual(false);
-  g.add_edge([2, 1]);
-  expect(g.is_edge([2, 1])).toEqual(true);
+  expect(g.isEdge([1, 2])).toEqual(true);
+  expect(g.isEdge([2, 1])).toEqual(false);
+  g.addEdge([2, 1]);
+  expect(g.isEdge([2, 1])).toEqual(true);
 });
 
 test('neighbours', () => {
@@ -79,22 +79,22 @@ test('neighbours', () => {
   expect(g.neighbours(2)).toEqual([4]);
 });
 
-test('is_walk', () => {
+test('isWalk', () => {
   expect.assertions(6);
   let edges = [[1, 2], [1, 3], [2, 5], [3, 4], [4, 2], [5, 4]];
   let g = new Graph(new Set([1, 2, 3, 4, 5]), edges);
-  expect(Graph.is_walk(g, [3, 4, 2, 5, 4, 2])).toEqual(true);
-  expect(Graph.is_walk(g, [5, 4, 2, 1, 3])).toEqual(false);
-  expect(Graph.is_walk(g, [2])).toEqual(true);
-  expect(Graph.is_walk(g, [])).toEqual(false);
-  expect(Graph.is_walk(g, [1, 6])).toEqual(false);
-  expect(Graph.is_walk(g, [6])).toEqual(false);
+  expect(Graph.isWalk(g, [3, 4, 2, 5, 4, 2])).toEqual(true);
+  expect(Graph.isWalk(g, [5, 4, 2, 1, 3])).toEqual(false);
+  expect(Graph.isWalk(g, [2])).toEqual(true);
+  expect(Graph.isWalk(g, [])).toEqual(false);
+  expect(Graph.isWalk(g, [1, 6])).toEqual(false);
+  expect(Graph.isWalk(g, [6])).toEqual(false);
 });
 
-test('is_path', () => {
+test('isPath', () => {
   expect.assertions(2);
   let edges = [[1, 2], [1, 3], [2, 5], [3, 4], [4, 2], [5, 4]];
   let g = new Graph(new Set([1, 2, 3, 4, 5]), edges);
-  expect(Graph.is_path(g, [3, 4, 2, 5, 4, 2])).toEqual(false);
-  expect(Graph.is_path(g, [3, 4, 2, 5])).toEqual(true);
+  expect(Graph.isPath(g, [3, 4, 2, 5, 4, 2])).toEqual(false);
+  expect(Graph.isPath(g, [3, 4, 2, 5])).toEqual(true);
 });

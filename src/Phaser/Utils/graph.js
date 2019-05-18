@@ -14,18 +14,18 @@ export default class Graph {
     this.alist = {};
 
     vertices.forEach(v => {
-      this.add_vertex(v);
+      this.addVertex(v);
     });
     edges.forEach(e => {
-      this.add_edge(e);
+      this.addEdge(e);
     });
   }
 
-  get_vertices() {
+  getVertices() {
     return new Set(Object.keys(this.alist));
   }
 
-  get_edges() {
+  getEdges() {
     let edges = [];
     Object.keys(this.alist).forEach(key => {
       this.alist[key].forEach(vertex => {
@@ -35,24 +35,24 @@ export default class Graph {
     return edges;
   }
 
-  add_vertex(v) {
+  addVertex(v) {
     if (!(v in this.alist)) {
       this.alist[v] = new Set();
     }
   }
 
-  add_edge(e) {
-    if (!this.is_vertex(e[0]) || !this.is_vertex(e[1])) {
+  addEdge(e) {
+    if (!this.isVertex(e[0]) || !this.isVertex(e[1])) {
       throw new Error('An endpoint is not in graph');
     }
     this.alist[e[0]].add(e[1]);
   }
 
-  is_vertex(v) {
+  isVertex(v) {
     return v in this.alist;
   }
 
-  is_edge(e) {
+  isEdge(e) {
     if (!(e[0] in this.alist)) {
       return false;
     }
@@ -60,30 +60,30 @@ export default class Graph {
   }
 
   neighbours(v) {
-    if (!this.is_vertex(v)) {
+    if (!this.isVertex(v)) {
       throw new Error('Vertex not in graph');
     }
     return Array.from(this.alist[v]);
   }
 
-  static is_walk(g, walk) {
+  static isWalk(g, walk) {
     if (walk.length === 0)
       // Should have at least one vertex
       return false;
 
-    if (walk.length === 1) return g.is_vertex(walk[0]);
+    if (walk.length === 1) return g.isVertex(walk[0]);
 
     for (let i = 0; i < walk.length - 1; i++) {
-      if (!g.is_edge([walk[i], walk[i + 1]])) {
+      if (!g.isEdge([walk[i], walk[i + 1]])) {
         return false;
       }
     }
     return true;
   }
 
-  static is_path(g, path) {
+  static isPath(g, path) {
     if (new Set(path).size < path.length) return false;
 
-    return this.is_walk(g, path);
+    return this.isWalk(g, path);
   }
 }
