@@ -47,7 +47,8 @@ export default class Movement extends Phaser.Scene {
   create() {
     // this.cameras.main.setBackgroundColor('rgba(125,0,255,1)'); // Set rgb background colour
     // this.cameras.main.setBackgroundColor('#800080');
-    this.cameras.main.setBackgroundColor('#ffffff');
+    // this.cameras.main.setBackgroundColor('#ffffff');
+    this.cameras.main.setBackgroundColor('#000000');
     this.counter = 0;
     this.keys = this.input.keyboard.addKeys({
       up: 'W',
