@@ -4,4 +4,4 @@
 
 This is a *very* early version of what is to become my portfolio website.
 
-The website can be found at: [wjxhenry.github.io/website](wjxhenry.github.io/website)
+The website can be found at: [wjxhenry.github.io/website](https://wjxhenry.github.io/website)
