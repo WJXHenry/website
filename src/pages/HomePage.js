@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import { Grid, Typography } from '@material-ui/core/';
+import { Container, Grid } from '@material-ui/core/';
+import { TypographyFade } from '../components/TypographyTransitions'
 
 class HomePage extends Component {
   render() {
     return (
-      <Grid>
-        <Typography variant="h2">Home Page</Typography>
+      <Grid container alignItems="center" justify="center" direction="column">
+        <Grid item>
+          <TypographyFade align="left" variant="h1" timeout={1000}>Henry Wee</TypographyFade>
+          <TypographyFade align="left" delay={500} variant="h3" timeout={1000}>Software Engineering Student</TypographyFade>
+        </Grid>
       </Grid>
     );
   }
