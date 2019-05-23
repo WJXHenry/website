@@ -2,4 +2,6 @@
 
 # Portfolio Website (WIP)
 
-This is a *very* early version of what is to become my portfolio website
+This is a *very* early version of what is to become my portfolio website.
+
+The website can be found at: [wjxhenry.github.io/website](https://wjxhenry.github.io/website)
