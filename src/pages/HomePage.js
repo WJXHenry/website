@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Grid } from '@material-ui/core/';
-import { TypographyFade } from '../components/TypographyTransitions';
+import {
+  TypographyFade,
+  TypographyTyped
+} from '../components/TypographyTransitions';
 
 class HomePage extends Component {
   constructor(props) {
@@ -22,18 +25,22 @@ class HomePage extends Component {
     return (
       <Grid
         container
-        alignItems="center"
+        // alignItems="center"
         justify="center"
         direction="column"
-        style={{ marginTop: window.innerHeight * 0.6 }}
+        style={{
+          marginTop: window.innerHeight * 0.6,
+          marginLeft: window.innerWidth * 0.2,
+          width: window.innerWidth
+        }}
       >
         <Grid item>
-          <TypographyFade align="left" variant="h1" timeout={1000}>
-            Henry Wee
+          <TypographyFade align="left" variant="h1" timeout={500}>
+            {'Henry Wee'}
           </TypographyFade>
-          <TypographyFade align="left" delay={500} variant="h3" timeout={1000}>
-            Software Engineering Student
-          </TypographyFade>
+          <TypographyTyped align="left" delay={500} variant="h3">
+            {'> Software Engineering Student'}
+          </TypographyTyped>
         </Grid>
       </Grid>
     );
