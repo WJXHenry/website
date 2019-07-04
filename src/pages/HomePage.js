@@ -29,8 +29,9 @@ class HomePage extends Component {
         justify="center"
         direction="column"
         style={{
-          marginTop: window.innerHeight * 0.6,
-          marginLeft: window.innerWidth * 0.2,
+          padding: '5vw',
+          justifyContent: 'flex-end',
+          height: window.innerHeight,
           width: window.innerWidth
         }}
       >
