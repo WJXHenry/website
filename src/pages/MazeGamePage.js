@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Game from '../Phaser/Game';
-import { Grid, Typography } from '@material-ui/core/';
+import { Grid } from '@material-ui/core/';
 
 class MazeGamePage extends Component {
   render() {
     return (
-      <Grid>
-        <Typography variant="h2">Maze Game</Typography>
+      <Grid style={{ padding: 25 }}>
+        {/* <Typography variant="h2" gutterBottom>
+          Maze Game
+        </Typography> */}
         <Game />
       </Grid>
     );
