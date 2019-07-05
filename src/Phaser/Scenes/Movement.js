@@ -59,11 +59,11 @@ export default class Movement extends Phaser.Scene {
     // this.playerPos = { x: 0, y: 0 };
     var keyObj = this.input.keyboard.addKey('ESC');
     keyObj.on('down', () => {
-      //   this.scene.start("TestScene")
+      this.scene.start('MainMenu');
       //   Fix the issue where there are multiple logs??
     });
     this.player = this.add.sprite(0, 0, 'player');
-
+    console.log('Start Movement');
     // keyObj.on('up', event => {
     //   console.log('W key up');
     // });
