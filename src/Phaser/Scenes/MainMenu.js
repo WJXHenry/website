@@ -1,9 +1,14 @@
 import Phaser from 'phaser';
+import { initSettings, getDimensions } from '../Utils/gameSettings';
 import { BLACK, GOLD, WHITE } from '../../common/colours';
 
 export default class MainMenu extends Phaser.Scene {
   constructor() {
     super('MainMenu');
+  }
+
+  init(data) {
+    this.settings = { ...initSettings(), ...data };
   }
 
   preload() {
@@ -23,42 +28,53 @@ export default class MainMenu extends Phaser.Scene {
       select: 'Enter'
     });
 
-    this.screenLength = this.game.config.width;
-    this.screenSpaceUnit = this.screenLength / 20;
-    this.screenCenter = this.screenLength / 2;
-    this.textSize1 = this.screenLength / 10;
-    this.textSize2 = this.screenLength / 15;
-    this.textSize3 = this.screenLength / 18;
+    this.gameDimensions = getDimensions(this.game);
 
     this.choice = 0;
     this.scenes = ['StartGame', 'Settings', 'Movement'];
 
     let title = this.add.text(
-      this.screenCenter,
-      this.screenSpaceUnit * 4,
+      this.gameDimensions.screenCenter,
+      this.gameDimensions.screenSpaceUnit * 4,
       'Yet Another Maze',
-      { fontFamily: 'Ubuntu', fill: BLACK, fontSize: this.textSize2 }
+      {
+        fontFamily: 'Ubuntu',
+        fill: BLACK,
+        fontSize: this.gameDimensions.textSize2
+      }
     );
     title.setOrigin(0.5, 0.5);
     let startGame = this.add.text(
-      this.screenCenter,
-      this.screenSpaceUnit * 8,
+      this.gameDimensions.screenCenter,
+      this.gameDimensions.screenSpaceUnit * 8,
       'Start Game',
-      { fontFamily: 'Ubuntu', fill: GOLD, fontSize: this.textSize3 }
+      {
+        fontFamily: 'Ubuntu',
+        fill: GOLD,
+        fontSize: this.gameDimensions.textSize3
+      }
     );
     startGame.setOrigin(0.5, 0.5);
     let settings = this.add.text(
-      this.screenCenter,
-      this.screenSpaceUnit * 12,
+      this.gameDimensions.screenCenter,
+      this.gameDimensions.screenSpaceUnit * 12,
       'Settings',
-      { fontFamily: 'Ubuntu', fill: BLACK, fontSize: this.textSize3 }
+      {
+        fontFamily: 'Ubuntu',
+        fill: BLACK,
+        fontSize: this.gameDimensions.textSize3
+      }
     );
     settings.setOrigin(0.5, 0.5);
     let exit = this.add.text(
-      this.screenCenter,
-      this.screenSpaceUnit * 16,
+      this.gameDimensions.screenCenter,
+      this.gameDimensions.screenSpaceUnit * 16,
       'Exit',
-      { fontFamily: 'Ubuntu', fill: BLACK, fontSize: this.textSize3 }
+      {
+        fontFamily: 'Ubuntu',
+        fill: BLACK,
+        fontSize: this.gameDimensions.textSize3
+      }
     );
     exit.setOrigin(0.5, 0.5);
 
@@ -83,7 +99,7 @@ export default class MainMenu extends Phaser.Scene {
       this.updateChoice(1);
     }
     if (Phaser.Input.Keyboard.JustDown(this.keys.select)) {
-      this.scene.start(this.options[this.choice].scene);
+      this.scene.start(this.options[this.choice].scene, this.settings);
     }
   }
 
