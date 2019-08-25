@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Game from '../Phaser/Game';
+import Game from 'phaser-maze-game';
 import { Grid } from '@material-ui/core/';
 
 class MazeGamePage extends Component {
