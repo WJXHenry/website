@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/WJXHenry/website.svg?branch=master)](https://travis-ci.org/WJXHenry/website)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=WJXHenry/website)](https://dependabot.com)
 
 # Portfolio Website (WIP)
 
