@@ -36,6 +36,6 @@
     "eslint-plugin-prettier": "^3.0.1",
     "gh-pages": "^2.0.1",
     "jest-canvas-mock": "^2.1.0",
-    "prettier": "^1.17.0"
+    "prettier": "^2.0.5"
   }
 }
